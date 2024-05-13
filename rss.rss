@@ -4,8 +4,7 @@
   xmlns:content="http://purl.org/rss/1.0/modules/content/"
   xmlns:slash="http://purl.org/rss/1.0/modules/slash/">
 
-  <!-- last-guid: 4  -->
-  <channel>
+  <!-- last-guid: 5  -->  <channel>
     <title>뉴스</title>
     <description>패치 노트</description>
     <pubDate>Sun, 12 May 2024 03:19:00 +0900</pubDate>
@@ -18,6 +17,7 @@
       href="https://raw.githubusercontent.com/djl987645/MineSquareLauncher/master/rss.rss" />
 
 <item><title>마인스퀘어 2024.5.13. 패치노트</title><pubDate>Mon, 13 May 2024 06:17:04 +0000</pubDate><link>https://discord.com/channels/1239328944298135657/1239461393053384704</link><guid isPermaLink="false">4</guid><dc:creator>djl987645</dc:creator><content:encoded></content:encoded></item><!-- 각 기사 구분 줄 ========================================================================================================================================================================================================== -->
+<item><title>마인스퀘어 2024.5.13. 패치노트</title><pubDate>Mon, 13 May 2024 06:17:36 +0000</pubDate><link>https://discord.com/channels/1239328944298135657/1239461529485836340</link><guid isPermaLink="false">5</guid><dc:creator>djl987645</dc:creator><content:encoded></content:encoded></item><!-- 각 기사 구분 줄 ========================================================================================================================================================================================================== -->
 
     <item>
       <pubDate>Mon, 13 May 2024 03:32:00 +0900</pubDate>
