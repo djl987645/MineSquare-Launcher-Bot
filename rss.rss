@@ -4,7 +4,7 @@
   xmlns:content="http://purl.org/rss/1.0/modules/content/"
   xmlns:slash="http://purl.org/rss/1.0/modules/slash/">
 
-  <!-- last-guid: 4  --> 
+  <!-- last-guid: 3  -->
   <!-- FIXME 추후 디스코드 봇 구현 필요 -->
   <!-- 디스코드 서버의 특정 포스트를 크롤링 하여 rss 생성하는 로직 필요 -->
   <channel>
