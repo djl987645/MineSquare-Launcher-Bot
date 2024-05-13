@@ -65,7 +65,9 @@ async def on_thread_create(thread):
                 guid = lines[6][19:20]
                 guid = int(guid) + 1  # guid를 정수로 변환하고 1을 더합니다.
                 lines[6] = f"  <!-- last-guid: {guid}  -->"
-
+            line[19]="\n"
+            with open("rss.rss", "w", encoding="utf-8") as file:
+                file.writelines(lines)
             new_item = f"<item>"
             new_item += f"<title>{thread_title}</title>"
             new_item += f"<pubDate>{creation_date.strftime('%a, %d %b %Y %H:%M:%S %z')}</pubDate>"
