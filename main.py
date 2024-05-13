@@ -4,10 +4,10 @@ import html
 import requests
 import base64
 
-TOKEN = "MTIzODQzNjA0NjYzMTQ2OTA2OA.GidIUP.5yvxL3kh_CgY9aASrY5LhnpdeAmGdHvSLznXMo"
+TOKEN = open("token", "r").readline()
 CHANNEL_ID = 1239330102160916480
 url = "https://api.github.com/repos/djl987645/MineSquare-Launcher-Bot/contents/rss.rss"
-token = "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"
+token = open("token", "r").readline(1)
 headers = {
     "Authorization": f"token {token}",
     "Accept": "application/vnd.github.v3+json",
@@ -107,6 +107,14 @@ async def on_thread_create(thread):
             with open("rss.rss", "r", encoding="utf-8") as file:
                 content = file.read()
             content_encoded = base64.b64encode(content.encode()).decode()
+            response = requests.get(url, headers=headers)
+            if response.status_code == 200:
+                # 응답 데이터 JSON으로 파싱
+                data = response.json()
+                sha = data["sha"]
+                print(f"SHA: {sha}")
+            else:
+                print("파일 정보를 가져오는 데 실패했습니다.")
             data = {
                 "owner": "djl987645",
                 "repo": "MineSquare-Launcher-Bot",
@@ -115,7 +123,7 @@ async def on_thread_create(thread):
                 "content": content_encoded,
                 "committer": {"name": "djl987645", "email": "djl987645@gmail.com"},
                 "branch": "main",
-                "sha": "23e57b25aadcd132dcf2f2d1fddc415b5b7a4071",  # 업로드할 브랜치 이름
+                "sha": sha,  # 업로드할 브랜치 이름
             }
             response = requests.put(url, headers=headers, json=data)
             if response.status_code == 201:
