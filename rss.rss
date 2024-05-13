@@ -19,7 +19,7 @@
     <atom:link rel="self" type="application/rss+xml"
       href="https://raw.githubusercontent.com/djl987645/MineSquareLauncher/master/rss.rss" />
 
-    <!-- new-item 스니펫으로 아이템 생성하기-->
+
     <item>
       <title>마인스퀘어 2024.5.13. 패치노트</title>
       <pubDate>Mon, 13 May 2024 03:32:00 +0900</pubDate>
