@@ -4,7 +4,11 @@
   xmlns:content="http://purl.org/rss/1.0/modules/content/"
   xmlns:slash="http://purl.org/rss/1.0/modules/slash/">
 
-  <!-- last-guid: 7  -->    <description>패치 노트</description>
+  <!-- last-guid: 3  -->
+
+  <channel>
+    <title>뉴스</title>
+    <description>패치 노트</description>
     <pubDate>Sun, 12 May 2024 03:19:00 +0900</pubDate>
     <lastBuildDate>Thu,
       09 May 2024 12:48:00 +0900</lastBuildDate>
@@ -14,10 +18,6 @@
     <atom:link rel="self" type="application/rss+xml"
       href="https://raw.githubusercontent.com/djl987645/MineSquareLauncher/master/rss.rss" />
 
-<item><title>마인스퀘어 2024.5.13. 패치노트</title><pubDate>Mon, 13 May 2024 06:17:04 +0000</pubDate><link>https://discord.com/channels/1239328944298135657/1239461393053384704</link><guid isPermaLink="false">4</guid><dc:creator>djl987645</dc:creator><content:encoded></content:encoded></item><!-- 각 기사 구분 줄 ========================================================================================================================================================================================================== -->
-<item><title>마인스퀘어 2024.5.13. 패치노트</title><pubDate>Mon, 13 May 2024 06:17:36 +0000</pubDate><link>https://discord.com/channels/1239328944298135657/1239461529485836340</link><guid isPermaLink="false">5</guid><dc:creator>djl987645</dc:creator><content:encoded></content:encoded></item><!-- 각 기사 구분 줄 ========================================================================================================================================================================================================== -->
-<item><title>마인스퀘어 2024.5.14. 패치노트</title><pubDate>Mon, 13 May 2024 06:18:30 +0000</pubDate><link>https://discord.com/channels/1239328944298135657/1239461753285247046</link><guid isPermaLink="false">6</guid><dc:creator>djl987645</dc:creator><content:encoded></content:encoded></item><!-- 각 기사 구분 줄 ========================================================================================================================================================================================================== -->
-<item><title>마인스퀘어 2024.5.13. 패치노트</title><pubDate>Mon, 13 May 2024 06:20:54 +0000</pubDate><link>https://discord.com/channels/1239328944298135657/1239462358401810472</link><guid isPermaLink="false">7</guid><dc:creator>djl987645</dc:creator><content:encoded></content:encoded></item><!-- 각 기사 구분 줄 ========================================================================================================================================================================================================== -->
 
     <item>
       <pubDate>Mon, 13 May 2024 03:32:00 +0900</pubDate>
