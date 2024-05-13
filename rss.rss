@@ -4,8 +4,7 @@
   xmlns:content="http://purl.org/rss/1.0/modules/content/"
   xmlns:slash="http://purl.org/rss/1.0/modules/slash/">
 
-  <!-- last-guid = 3 -->
- 
+  <!-- last-guid: 4  --> 
   <!-- FIXME 추후 디스코드 봇 구현 필요 -->
   <!-- 디스코드 서버의 특정 포스트를 크롤링 하여 rss 생성하는 로직 필요 -->
   <channel>
@@ -19,7 +18,7 @@
       https://discord.gg/e9DmduXy</link>
     <atom:link rel="self" type="application/rss+xml"
       href="https://raw.githubusercontent.com/djl987645/MineSquareLauncher/master/rss.rss" />
-
+<item><title>마인스퀘어 2024.5.13. 패치노트</title><pubDate>Mon, 13 May 2024 04:42:19 +0000</pubDate><link>https://discord.com/channels/1239328944298135657/1239437548976078939</link><guid isPermaLink="false">4</guid><dc:creator>djl987645</dc:creator><content:encoded></content:encoded></item><!-- 각 기사 구분 줄 ========================================================================================================================================================================================================== -->
     <!-- new-item 스니펫으로 아이템 생성하기-->
     <item>
       <title>마인스퀘어 2024.5.13. 패치노트</title>
