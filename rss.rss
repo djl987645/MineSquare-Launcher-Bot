@@ -4,8 +4,7 @@
   xmlns:content="http://purl.org/rss/1.0/modules/content/"
   xmlns:slash="http://purl.org/rss/1.0/modules/slash/">
 
-  <!-- last-guid: 4  -->
-
+  <!-- last-guid: 5  -->
 
   <channel>
     <title>뉴스</title>
@@ -19,6 +18,26 @@
     <atom:link rel="self" type="application/rss+xml"
       href="https://raw.githubusercontent.com/djl987645/MineSquareLauncher/master/rss.rss" />
 
+
+<item>
+<title>마인스퀘어 2024.5.18. 패치노트</title>
+<pubDate>Sat, 18 May 2024 03:28:44 +0900</pubDate>
+<link>https://discord.com/channels/1217041766847348776/1241095076218671145</link>
+<guid isPermaLink="false">5</guid>
+<dc:creator>dyseo04</dc:creator>
+<content:encoded><div class="patch-note">
+<h3>[무기]</h3>
+<ul>
+<li>- 발렌다 활 헌터의 대미지가 5.7에서 10으로 증가합니다.</li><li>- 발렌다 활 헌터의 스킬 속사의 피해가 들어가지 않던 오류를 해결했습니다.</li><li>- 발렌다 지팡이 생명의 가지의 대미지가 35에서 24로 감소합니다.</li><li>- 발렌다 지팡이 생명의 가지의 기이 얼음 결정으로 변경되며 좌클릭을 하면 시전되도록 변경됩니다.</li><li>- 발렌다 무기 강화가 추가되었습니다. 발렌다 무기 상점에서 진행할 수 있습니다.</li>
+</ul>
+</div><div class="patch-note">
+<h3>[기타]</h3>
+<ul>
+<li>- 발렌다 버스 정류장이 추가됩니다.</li><li>- 이제 거래소의 물품을 취소할 시 수수료가 발생합니다.</li>
+</ul>
+</div></content:encoded>
+</item>
+<!-- 각 기사 구분 줄 ========================================================================================================================================================================================================== -->
 
     <item>
       <title>마인스퀘어 2024.5.17. 패치노트 (12:48 수정)</title>
