@@ -4,9 +4,11 @@
   xmlns:content="http://purl.org/rss/1.0/modules/content/"
   xmlns:slash="http://purl.org/rss/1.0/modules/slash/">
 
-  <!-- last-guid: 4  -->    
+  <!-- last-guid: 4  -->
 
-<title>뉴스</title>
+
+  <channel>
+    <title>뉴스</title>
     <description>패치 노트</description>
     <pubDate>Sun, 12 May 2024 03:19:00 +0900</pubDate>
     <lastBuildDate>Thu,
@@ -18,18 +20,33 @@
       href="https://raw.githubusercontent.com/djl987645/MineSquareLauncher/master/rss.rss" />
 
 
-
-<item><title>마인스퀘어 2024.5.17. 패치노트 (12:48 수정)</title><pubDate>Fri, 17 May 2024 05:33:07 +0900</pubDate><link>https://discord.com/channels/1217041766847348776/1240763988011384922</link><guid isPermaLink="false">4</guid><dc:creator>dyseo04</dc:creator><content:encoded><div class="patch-note">
-<h3>[RPG]</h3>
-<ul>
-<li>- 새로운 지역 발렌다가 추가됩니다.</li><li>- 발렌다 메인 퀘스트가 추가됩니다.</li><li>- 새로운 사냥터가 추가되며 새로운 몬스터 전사 슬라임과 신성한 슬라임이 추가됩니다.</li><li>- 새로운 장비인 발렌다 무기가 추가됩니다. 발렌다 무기는 검, 단검, 활, 지팡이로 4종류입니다.</li><li>- 새로운 필드 보스 킹 슬라임이 추가됩니다.</li>
-</ul>
-</div><div class="patch-note">
-<h3>[기타]</h3>
-<ul>
-<li>- 거래소에서 아이템을 회수할 시 수수료가 발생합니다.</li>
-</ul>
-</div></content:encoded></item><!-- 각 기사 구분 줄 ========================================================================================================================================================================================================== -->
+    <item>
+      <title>마인스퀘어 2024.5.17. 패치노트 (12:48 수정)</title>
+      <pubDate>Fri, 17 May 2024 05:33:07 +0900</pubDate>
+      <link>https://discord.com/channels/1217041766847348776/1240763988011384922</link>
+      <guid isPermaLink="false">4</guid>
+      <dc:creator>dyseo04</dc:creator>
+      <content:encoded>
+        <div class="patch-note">
+          <h3>[RPG]</h3>
+          <ul>
+            <li>- 새로운 지역 발렌다가 추가됩니다.</li>
+            <li>- 발렌다 메인 퀘스트가 추가됩니다.</li>
+            <li>- 새로운 사냥터가 추가되며 새로운 몬스터 전사 슬라임과 신성한 슬라임이 추가됩니다.</li>
+            <li>- 새로운 장비인 발렌다 무기가 추가됩니다. 발렌다 무기는 검, 단검, 활, 지팡이로 4종류입니다.</li>
+            <li>- 새로운 필드 보스 킹 슬라임이 추가됩니다.</li>
+          </ul>
+        </div>
+        <div class="patch-note">
+          <h3>[기타]</h3>
+          <ul>
+            <li>- 거래소에서 아이템을 회수할 시 수수료가 발생합니다.</li>
+          </ul>
+        </div>
+      </content:encoded>
+    </item><!--
+    각 기사 구분 줄
+    ========================================================================================================================================================================================================== -->
     <item>
       <title>마인스퀘어 2024.5.13. 패치노트</title>
       <pubDate>Mon, 13 May 2024 03:32:00 +0900</pubDate>
