@@ -5,9 +5,9 @@ import requests
 import base64
 
 TOKEN = open("token", "r").readline()
-CHANNEL_ID = 1239330102160916480
+CHANNEL_ID = 1233436867844898856
 url = "https://api.github.com/repos/djl987645/MineSquare-Launcher-Bot/contents/rss.rss"
-token = open("token", "r").readline(1)
+token = open("token", "r").readlines()[1].strip()
 headers = {
     "Authorization": f"token {token}",
     "Accept": "application/vnd.github.v3+json",
@@ -62,12 +62,10 @@ async def on_thread_create(thread):
 
             with open("rss.rss", "r", encoding="utf-8") as file:
                 lines = file.readlines()
-                guid = lines[6][19:20]
+                guid = lines[6][18:19]
                 guid = int(guid) + 1  # guid를 정수로 변환하고 1을 더합니다.
                 lines[6] = f"  <!-- last-guid: {guid}  -->"
-            line[19]="\n"
-            with open("rss.rss", "w", encoding="utf-8") as file:
-                file.writelines(lines)
+
             new_item = f"<item>"
             new_item += f"<title>{thread_title}</title>"
             new_item += f"<pubDate>{creation_date.strftime('%a, %d %b %Y %H:%M:%S %z')}</pubDate>"
@@ -99,8 +97,7 @@ async def on_thread_create(thread):
             new_item += f"<content:encoded>{contents}</content:encoded>"
             new_item += f"</item>"
             new_item += f"<!-- 각 기사 구분 줄 ========================================================================================================================================================================================================== -->"
-            lines[20] += new_item
-
+            lines[19] += new_item
             with open("rss.rss", "w", encoding="utf-8") as file:
                 file.writelines(lines)
 
@@ -126,7 +123,7 @@ async def on_thread_create(thread):
                 "sha": sha,  # 업로드할 브랜치 이름
             }
             response = requests.put(url, headers=headers, json=data)
-            if response.status_code == 201:
+            if response.status_code == 200:
                 print("File uploaded successfully.")
             else:
                 print(f"Failed to upload file. Status code: {response.status_code}")
