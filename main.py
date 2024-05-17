@@ -143,8 +143,9 @@ async def on_thread_create(thread):
             contents = format_content(message_content)
             # 이미지 URL을 추가합니다.
             contents += f"{' '.join([f'<img src=\'{url}\'/>' for url in images])}"
-            new_item += f"<content:encoded>{contents}</content:encoded>"
-            new_item += f"</item>"
+
+            new_item += f"<content:encoded>{contents}</content:encoded>\n"
+            new_item += f"</item>\n"
             # 각 기사 구분 줄을 추가합니다.
             new_item += f"<!-- 각 기사 구분 줄 ========================================================================================================================================================================================================== -->\n\n"
             lines[21] += new_item
