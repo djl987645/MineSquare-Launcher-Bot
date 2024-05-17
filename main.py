@@ -3,6 +3,8 @@ from nextcord.ext import commands
 import html
 import requests
 import base64
+from datetime import datetime
+import pytz
 
 # 봇 토큰을 읽어옵니다.
 TOKEN = open("token", "r").readline()
@@ -32,6 +34,7 @@ intents.messages = True  # 메시지 이벤트를 활성화합니다.
 # 클라이언트 객체를 생성합니다.
 client = nextcord.Client(intents=intents)
 
+
 # 봇이 준비되었을 때 실행되는 함수입니다.
 @bot.event
 async def on_ready():
@@ -51,6 +54,7 @@ async def on_ready():
     else:
         print(f"Failed to download file. Status code: {response.status_code}")
 
+
 # 스레드가 생성되었을 때 실행되는 함수입니다.
 @bot.event
 async def on_thread_create(thread):
@@ -64,14 +68,15 @@ async def on_thread_create(thread):
             # 스레드 링크를 가져옵니다.
             thread_link = thread.jump_url
             # 첫 번째 메시지 작성자의 이름을 가져옵니다.
-            author_name = first_message[0].author.name
+            author_name = first_message[0].author.display_name
             # 첫 번째 메시지의 내용을 가져옵니다.
             message_content = first_message[0].content
             # 첨부 파일 목록을 초기화합니다.
             images = []
             for attachment in first_message[0].attachments:
                 # 이미지 파일인지 확인합니다.
-                if attachment.filename.lower().endswith(('.png', '.jpg', '.jpeg', '.gif', '.bmp')):
+                if attachment.filename.lower().endswith(
+                    ('.png', '.jpg', '.jpeg', '.gif', '.bmp')):
                     # 이미지 URL을 추가합니다.
                     images.append(attachment.url.replace('&', '&amp;'))
 
@@ -90,12 +95,21 @@ async def on_thread_create(thread):
                 lines[6] = f"  <!-- last-guid: {guid}  -->"
 
             # 새로운 RSS 아이템을 생성합니다.
-            new_item = f"<item>"
-            new_item += f"<title>{thread_title}</title>"
-            new_item += f"<pubDate>{creation_date.strftime('%a, %d %b %Y %H:%M:%S %z')}</pubDate>"
-            new_item += f"<link>{thread_link}</link>"
-            new_item += f"<guid isPermaLink=\"false\">{guid}</guid>"
-            new_item += f"<dc:creator>{author_name}</dc:creator>"
+            new_item = f"<item>\n"
+            new_item += f"<title>{thread_title}</title>\n"
+
+            # creation_date가 UTC가 아닌 경우, UTC로 변환
+            if creation_date.tzinfo is None or creation_date.tzinfo.utcoffset(
+                    creation_date) is not None:
+                creation_date = creation_date.replace(tzinfo=pytz.UTC)
+            # UTC+9 시간대로 변환
+            korea_tz = pytz.timezone('Asia/Seoul')
+            creation_date_korea = creation_date.astimezone(korea_tz)
+            new_item += f"<pubDate>{creation_date_korea.strftime('%a, %d %b %Y %H:%M:%S %z')}</pubDate>\n"
+
+            new_item += f"<link>{thread_link}</link>\n"
+            new_item += f'<guid isPermaLink="false">{guid}</guid>\n'
+            new_item += f"<dc:creator>{author_name}</dc:creator>\n"
 
             # 메시지 내용을 형식화하는 함수입니다.
             def format_content(message_content):
@@ -109,13 +123,20 @@ async def on_thread_create(thread):
                         if len(split_part) > 1:
                             # 분리된 부분을 HTML로 이스케이프합니다.
                             title = html.escape(split_part[0])
-                            content_lines = html.escape(split_part[1]).split('\n')
-                            content_formatted = ''.join(f'<li>{line}</li>' for line in content_lines if line.strip() != '')
-                            formatted_parts.append(f'<div class="patch-note">\n<h3>[{title}]</h3>\n<ul>\n{content_formatted}\n</ul>\n</div>')
+                            content_lines = html.escape(
+                                split_part[1]).split('\n')
+                            content_formatted = ''.join(
+                                f'<li>{line}</li>' for line in content_lines
+                                if line.strip() != '')
+                            formatted_parts.append(
+                                f'<div class="patch-note">\n<h3>[{title}]</h3>\n<ul>\n{content_formatted}\n</ul>\n</div>'
+                            )
                         else:
                             # ] 문자가 없는 경우, 전체 부분을 내용으로 처리
                             content = html.escape(part)
-                            formatted_parts.append(f'<div class="patch-note"><ul><li>[{content}]</li></ul></div>')
+                            formatted_parts.append(
+                                f'<div class="patch-note"><ul><li>[{content}]</li></ul></div>'
+                            )
                     return ''.join(formatted_parts)
 
             # 내용을 형식화합니다.
@@ -125,8 +146,8 @@ async def on_thread_create(thread):
             new_item += f"<content:encoded>{contents}</content:encoded>"
             new_item += f"</item>"
             # 각 기사 구분 줄을 추가합니다.
-            new_item += f"<!-- 각 기사 구분 줄 ========================================================================================================================================================================================================== -->"
-            lines[19] += new_item
+            new_item += f"<!-- 각 기사 구분 줄 ========================================================================================================================================================================================================== -->\n\n"
+            lines[21] += new_item
             # 변경된 내용을 파일에 씁니다.
             with open("rss.rss", "w", encoding="utf-8") as file:
                 file.writelines(lines)
@@ -134,6 +155,7 @@ async def on_thread_create(thread):
             # 파일 내용을 읽어옵니다.
             with open("rss.rss", "r", encoding="utf-8") as file:
                 content = file.read()
+
             # 파일 내용을 base64로 인코딩합니다.
             content_encoded = base64.b64encode(content.encode()).decode()
             response = requests.get(url, headers=headers)
@@ -150,7 +172,10 @@ async def on_thread_create(thread):
                 "message": "Upload rss.rss file",
                 "path": "rss.rss",
                 "content": content_encoded,
-                "committer": {"name": "djl987645", "email": "djl987645@gmail.com"},
+                "committer": {
+                    "name": "djl987645",
+                    "email": "djl987645@gmail.com"
+                },
                 "branch": "main",
                 "sha": sha,  # 업로드할 브랜치 이름
             }
@@ -158,7 +183,10 @@ async def on_thread_create(thread):
             if response.status_code == 200:
                 print("File uploaded successfully.")
             else:
-                print(f"Failed to upload file. Status code: {response.status_code}")
+                print(
+                    f"Failed to upload file. Status code: {response.status_code}"
+                )
+
 
 # 봇을 실행합니다.
 bot.run(TOKEN)
