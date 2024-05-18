@@ -2,7 +2,7 @@
   xmlns:content="http://purl.org/rss/1.0/modules/content/"
   xmlns:slash="http://purl.org/rss/1.0/modules/slash/" version="2.0">
 
-  <!-- last-guid: 5  -->
+  <!-- last-guid: 6  -->
 
   <channel>
     <title>뉴스</title>
@@ -22,7 +22,7 @@
       <pubDate>Sat, 18 May 2024 16:02:48 +0900</pubDate>
       <link>https://discord.com/channels/1217041766847348776/1241284844949078056</link>
       <guid isPermaLink="false">6</guid>
-      <dc:creator>minho4979</dc:creator>
+      <dc:creator>크작가</dc:creator>
       <content:encoded>
         <div class="patch-note"></div>
         <h3>아직 일정은 미지정이며 짧게는 2~3일 길게는 일주일 내로 타우니 시스템의 변화가 생길 예정입니다.</h3>
@@ -49,7 +49,7 @@
       <pubDate>Sat, 18 May 2024 03:28:44 +0900</pubDate>
       <link>https://discord.com/channels/1217041766847348776/1241095076218671145</link>
       <guid isPermaLink="false">5</guid>
-      <dc:creator>dyseo04</dc:creator>
+      <dc:creator>비유</dc:creator>
       <content:encoded>
         <div class="patch-note">
           <h3>[무기]</h3>
