@@ -4,8 +4,7 @@
   xmlns:content="http://purl.org/rss/1.0/modules/content/"
   xmlns:slash="http://purl.org/rss/1.0/modules/slash/">
 
-  <!-- last-guid: 5  -->
-
+  <!-- last-guid: 6  -->
   <channel>
     <title>뉴스</title>
     <description>패치 노트</description>
@@ -20,6 +19,16 @@
 
 
 <item>
+<item>
+<title>마인스퀘어 패치노트 예정</title>
+<pubDate>Sat, 18 May 2024 16:02:48 +0900</pubDate>
+<link>https://discord.com/channels/1217041766847348776/1241284844949078056</link>
+<guid isPermaLink="false">6</guid>
+<dc:creator>minho4979</dc:creator>
+<content:encoded></content:encoded>
+</item>
+<!-- 각 기사 구분 줄 ========================================================================================================================================================================================================== -->
+
 <title>마인스퀘어 2024.5.18. 패치노트</title>
 <pubDate>Sat, 18 May 2024 03:28:44 +0900</pubDate>
 <link>https://discord.com/channels/1217041766847348776/1241095076218671145</link>
