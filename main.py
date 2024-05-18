@@ -121,7 +121,7 @@ async def on_thread_create(thread):
                 guid = int(guid) + 1
                 lines[guid_line_index] = f"  <!-- last-guid: {guid}  -->"
 
-            new_item = f"<item>\n"
+            new_item = f"\n<item>\n"
             new_item += f"<title>{thread_title}</title>\n"
 
             if creation_date.tzinfo is None or creation_date.tzinfo.utcoffset(
@@ -139,7 +139,7 @@ async def on_thread_create(thread):
             new_item += f"<content:encoded>{contents}</content:encoded>\n"
             new_item += f"</item>\n"
             new_item += f"<!-- 각 기사 구분 줄 ========================================================================================================================================================================================================== -->\n\n"
-            lines[21] += new_item
+            lines[20] += new_item
             with open("rss.rss", "w", encoding="utf-8") as file:
                 file.writelines(lines)
 
@@ -217,7 +217,7 @@ async def on_thread_update(before, after):
                 parent_node.append(etree.fromstring(img_tag_string))
 
         # 수정된 XML 저장
-        tree.write("test.rss", pretty_print=True, encoding='utf-8')
+        tree.write("rss.rss", pretty_print=False, encoding='utf-8')
 
     else:
         print("xml edit failed")
