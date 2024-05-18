@@ -48,6 +48,7 @@ def format_content(text):
 
     return formatted_text
 
+
 # 봇 토큰을 읽어옵니다.
 TOKEN = open("token", "r").readline()
 
@@ -133,8 +134,6 @@ async def on_thread_create(thread):
             new_item += f'<guid isPermaLink="false">{guid}</guid>\n'
             new_item += f"<dc:creator>{author_name}</dc:creator>\n"
 
-
-
             contents = format_content(message_content)
             contents += f"{' '.join([f'<img src=\'{url}\'/>' for url in images])}"
             new_item += f"<content:encoded>{contents}</content:encoded>\n"
@@ -178,7 +177,7 @@ async def on_thread_create(thread):
 
 @bot.event
 async def on_thread_update(before, after):
-    
+
     response = requests.get(url, headers=headers)
     if response.status_code == 200:
         content_encoded = response.json()["content"]
@@ -190,27 +189,36 @@ async def on_thread_update(before, after):
         print(f"Failed to download file. Status code: {response.status_code}")
 
     if before.jump_url == after.jump_url:
+
         # XML 데이터 읽기
         tree = etree.parse("rss.rss")
         root = tree.getroot()
+
         # content:encoded 태그 찾기
         content_encoded = root.find(
             './/{http://purl.org/rss/1.0/modules/content/}encoded')
         img = root.find('.//img')
+
         # content:encoded 태그 삭제
         if content_encoded is not None:
             parent_node = content_encoded.getparent()
             parent_node.remove(content_encoded)
-            img_tag_string = etree.tostring(parent_node.find('.//img')).decode('utf-8')
-            parent_node.remove(img)
 
             # 새로운 태그 추가
             new_tag = etree.SubElement(
-                parent_node, '{http://purl.org/rss/1.0/modules/content/}encoded')
+                parent_node,
+                '{http://purl.org/rss/1.0/modules/content/}encoded')
             new_tag.text = "hello world"
-            parent_node.append(etree.fromstring(img_tag_string))
+
+            # img 태그가 존재하는 경우만 처리
+            if img is not None and img.getparent() == parent_node:
+                img_tag_string = etree.tostring(img).decode('utf-8')
+                parent_node.remove(img)
+                parent_node.append(etree.fromstring(img_tag_string))
+
         # 수정된 XML 저장
-        tree.write("rss.rss", pretty_print=True, encoding='utf-8')
+        tree.write("test.rss", pretty_print=True, encoding='utf-8')
+
     else:
         print("xml edit failed")
 
@@ -241,9 +249,8 @@ async def on_thread_update(before, after):
     if response.status_code == 200:
         print("File uploaded successfully.")
     else:
-        print(
-            f"Failed to upload file. Status code: {response.status_code}"
-        )
+        print(f"Failed to upload file. Status code: {response.status_code}")
+
 
 # 봇을 실행합니다.
 bot.run(TOKEN)
