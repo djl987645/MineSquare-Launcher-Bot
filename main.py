@@ -107,6 +107,7 @@ async def on_thread_create(thread):
                                 f'<div class="patch-note">\n<h3>[{title}]</h3>\n<ul>\n{content_formatted}\n</ul>\n</div>'
                             )
                         else:
+                            # TODO []로 감싸져 있지 않은 내용은 split 안됨-> 수정 할것
                             content = html.escape(part)
                             formatted_parts.append(
                                 f'<div class="patch-note"><ul><li>[{content}]</li></ul></div>'
@@ -168,7 +169,7 @@ async def on_thread_update(before, after):
         # content:encoded 태그 삭제
         if content_encoded is not None:
             content_encoded.getparent().remove(content_encoded)
-
+        # TODO 스레드 업데이트 시 기존 컨텐츠 태그는 삭제하지만 따로 업로드 하지 않음
         # 수정된 XML 저장
         tree.write("rss.rss", pretty_print=True, encoding='utf-8')
 
