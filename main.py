@@ -1,11 +1,52 @@
 import nextcord
 from nextcord.ext import commands
-import html
 import requests
 import base64
 from datetime import datetime
 import pytz
+import re
 from lxml import etree
+from html import escape
+
+
+def format_content(text):
+    # 각 제목을 찾기 위한 정규 표현식
+    title_pattern = r'\[(.*?)\]|^(?!- ).*$'
+    # li 태그로 감싸는 정규 표현식
+    item_pattern = r'-(.*?\.)'
+
+    # 각 제목과 내용을 분리하고, 내용을 '-'로 시작하는 부분을 처리
+    text_lines = text.split('\n')
+    formatted_text = ""
+    current_title = None
+
+    for line in text_lines:
+        match = re.match(title_pattern, line)
+        if line == '':
+            continue
+
+        if match:
+            title = match.group(0)
+
+            # 제목이 발견되면, 이전 제목과 내용을 처리하고 새로운 제목을 시작합니다.
+            if current_title:
+                formatted_text += f'</ul>\n</div>\n'
+
+            # 제목을 div 태그로 감싸고, 내용을 ul 태그로 감싸는 HTML 코드 생성
+            formatted_text += f'<div class="patch-note">\n<h3>{escape(title)}</h3>\n<ul>\n'
+            current_title = title
+
+        else:
+            # 각 줄별로 내용을 '-'로 시작하는 부분을 처리
+            match = re.match(item_pattern, line)
+            if match:
+                formatted_text += f'<li>{escape(match.string[2:])}</li>\n'
+
+    # 마지막 제목과 내용까지 처리
+    if current_title:
+        formatted_text += f'</ul>\n</div>'
+
+    return formatted_text
 
 # 봇 토큰을 읽어옵니다.
 TOKEN = open("token", "r").readline()
@@ -60,6 +101,11 @@ async def on_thread_create(thread):
             creation_date = thread.created_at
             thread_link = thread.jump_url
             author_name = first_message[0].author.display_name
+            if author_name == "minho4979":
+                author_name = "크작가"
+            elif author_name == "dyseo04":
+                author_name = "비유"
+
             message_content = first_message[0].content
             images = []
             for attachment in first_message[0].attachments:
@@ -69,7 +115,7 @@ async def on_thread_create(thread):
             with open("rss.rss", "r", encoding="utf-8") as file:
                 lines = file.readlines()
                 guid_line_index = next((i for i, line in enumerate(lines)
-                                        if '<!-- last-guid:' in line), 6)
+                                        if '<!-- last-guid:' in line), 4)
                 guid = lines[guid_line_index][18:19]
                 guid = int(guid) + 1
                 lines[guid_line_index] = f"  <!-- last-guid: {guid}  -->"
@@ -87,32 +133,7 @@ async def on_thread_create(thread):
             new_item += f'<guid isPermaLink="false">{guid}</guid>\n'
             new_item += f"<dc:creator>{author_name}</dc:creator>\n"
 
-            def format_content(message_content):
-                parts = message_content.split('[')
-                if len(parts) < 2:
-                    return ''
-                else:
-                    formatted_parts = []
-                    for part in parts[1:]:
-                        split_part = part.split(']', 1)
-                        if len(split_part) > 1:
-                            title = html.escape(split_part[0])
-                            content_lines = html.escape(
-                                split_part[1]).split('\n')
-                            content_formatted = ''.join(
-                                f'<li>{line.lstrip("- ")}</li>'
-                                for line in content_lines
-                                if line.strip() != '')
-                            formatted_parts.append(
-                                f'<div class="patch-note">\n<h3>[{title}]</h3>\n<ul>\n{content_formatted}\n</ul>\n</div>'
-                            )
-                        else:
-                            # TODO []로 감싸져 있지 않은 내용은 split 안됨-> 수정 할것
-                            content = html.escape(part)
-                            formatted_parts.append(
-                                f'<div class="patch-note"><ul><li>[{content}]</li></ul></div>'
-                            )
-                    return ''.join(formatted_parts)
+
 
             contents = format_content(message_content)
             contents += f"{' '.join([f'<img src=\'{url}\'/>' for url in images])}"
@@ -157,22 +178,72 @@ async def on_thread_create(thread):
 
 @bot.event
 async def on_thread_update(before, after):
+    
+    response = requests.get(url, headers=headers)
+    if response.status_code == 200:
+        content_encoded = response.json()["content"]
+        content = base64.b64decode(content_encoded).decode("utf-8")
+        with open("rss.rss", "w", encoding="utf-8") as file:
+            file.write(content)
+        print("File downloaded successfully.")
+    else:
+        print(f"Failed to download file. Status code: {response.status_code}")
+
     if before.jump_url == after.jump_url:
         # XML 데이터 읽기
         tree = etree.parse("rss.rss")
         root = tree.getroot()
-
         # content:encoded 태그 찾기
         content_encoded = root.find(
             './/{http://purl.org/rss/1.0/modules/content/}encoded')
-
+        img = root.find('.//img')
         # content:encoded 태그 삭제
         if content_encoded is not None:
-            content_encoded.getparent().remove(content_encoded)
-        # TODO 스레드 업데이트 시 기존 컨텐츠 태그는 삭제하지만 따로 업로드 하지 않음
+            parent_node = content_encoded.getparent()
+            parent_node.remove(content_encoded)
+            img_tag_string = etree.tostring(parent_node.find('.//img')).decode('utf-8')
+            parent_node.remove(img)
+
+            # 새로운 태그 추가
+            new_tag = etree.SubElement(
+                parent_node, '{http://purl.org/rss/1.0/modules/content/}encoded')
+            new_tag.text = "hello world"
+            parent_node.append(etree.fromstring(img_tag_string))
         # 수정된 XML 저장
         tree.write("rss.rss", pretty_print=True, encoding='utf-8')
+    else:
+        print("xml edit failed")
 
+    with open("rss.rss", "r", encoding="utf-8") as file:
+        content = file.read()
+    content_encoded = base64.b64encode(content.encode()).decode()
+    response = requests.get(url, headers=headers)
+    if response.status_code == 200:
+        data = response.json()
+        sha = data["sha"]
+        print(f"SHA: {sha}")
+    else:
+        print("파일 정보를 가져오는 데 실패했습니다.")
+    data = {
+        "owner": "djl987645",
+        "repo": "MineSquare-Launcher-Bot",
+        "message": "Upload rss.rss file",
+        "path": "rss.rss",
+        "content": content_encoded,
+        "committer": {
+            "name": "djl987645",
+            "email": "djl987645@gmail.com"
+        },
+        "branch": "main",
+        "sha": sha,
+    }
+    response = requests.put(url, headers=headers, json=data)
+    if response.status_code == 200:
+        print("File uploaded successfully.")
+    else:
+        print(
+            f"Failed to upload file. Status code: {response.status_code}"
+        )
 
 # 봇을 실행합니다.
 bot.run(TOKEN)
