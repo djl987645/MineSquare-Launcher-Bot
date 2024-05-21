@@ -113,6 +113,17 @@ async def on_thread_create(thread):
                 if attachment.filename.lower().endswith(
                     ('.png', '.jpg', '.jpeg', '.gif', '.bmp')):
                     images.append(attachment.url.replace('&', '&amp;'))
+
+            print(f"새로운 패치노트가 작성되었습니다")
+            print(f"Title: {thread_title}")
+            print(
+                f"Date: {creation_date_korea.strftime('%a, %d %b %Y %H:%M:%S %z')}"
+            )
+            print(f"Link: {thread_link}")
+            print(f"Name: {author_name}")
+            print(f"Content: {message_content}")
+            print(f"Images: {images}")
+
             with open("rss.rss", "r", encoding="utf-8") as file:
                 lines = file.readlines()
                 guid_line_index = next((i for i, line in enumerate(lines)
@@ -190,6 +201,12 @@ async def on_thread_update(before, after):
 
     if before.jump_url == after.jump_url:
 
+        first_message = await after.history(limit=1).flatten()
+        after_message = first_message[0].content
+        after_contents = format_content(after_message)
+        print(f"패치노트가 수정되었습니다")
+        print(f"Content: {after_message}")
+
         # XML 데이터 읽기
         tree = etree.parse("rss.rss")
         root = tree.getroot()
@@ -208,7 +225,7 @@ async def on_thread_update(before, after):
             new_tag = etree.SubElement(
                 parent_node,
                 '{http://purl.org/rss/1.0/modules/content/}encoded')
-            new_tag.text = "hello world"
+            new_tag.text = f"{after_contents}"
 
             # img 태그가 존재하는 경우만 처리
             if img is not None and img.getparent() == parent_node:
