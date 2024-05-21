@@ -1,6 +1,4 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/"
-  xmlns:content="http://purl.org/rss/1.0/modules/content/"
-  xmlns:slash="http://purl.org/rss/1.0/modules/slash/" version="2.0">
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:slash="http://purl.org/rss/1.0/modules/slash/" version="2.0">
 
   <!-- last-guid: 6  -->
 
@@ -13,8 +11,7 @@
     <generator>MineSquare Server</generator>
     <link>
       https://discord.gg/e9DmduXy</link>
-    <atom:link rel="self" type="application/rss+xml"
-      href="https://raw.githubusercontent.com/djl987645/MineSquareLauncher/master/rss.rss" />
+    <atom:link rel="self" type="application/rss+xml" href="https://raw.githubusercontent.com/djl987645/MineSquareLauncher/master/rss.rss"/>
 
 
     <item>
@@ -23,23 +20,7 @@
       <link>https://discord.com/channels/1217041766847348776/1241284844949078056</link>
       <guid isPermaLink="false">6</guid>
       <dc:creator>크작가</dc:creator>
-      <content:encoded>
-        <div class="patch-note"></div>
-        <h3>아직 일정은 미지정이며 짧게는 2~3일 길게는 일주일 내로 타우니 시스템의 변화가 생길 예정입니다.</h3>
-        <ul>
-          <li>이제부터 타우니의 멤버관리가 사라집니다.</li>
-          <li>새로운 개념 "동아리"가 생깁니다.</li>
-          <li>예상 동아리의 최대 인원은 8명이며, 혼자서 동아리를 운영 할 수 있습니다.</li>
-          <li>첫 동아리 땅의 예상 크기는 16x16이며 청크 단위가 아닌 하얀 양털로 본인의 땅 크기를 판별 할 수 있습니다. 추후 업그레이드 시스템을 이용해 땅의
-            크기를 키울 수 있습니다.</li>
-          <li>동아리 땅은 같은 동아리 인원만 사용할 수 있으며, 기존에 있던 땅은 오직 본인만 사용 가능합니다.</li>
-          <li>동아리 땅은 새로운 섬(미정)에만 생성 할 수 있습니다.</li>
-          <li>해당 플러그인은 테스트 이후 배포되는것이 아닌 첫 개시 이후 차차 수정 될 수 있음을 알립니다.</li>
-          <li>사유 : 현재 운영진들보단 실제 플레이하는 플레이어들이 버그 같은 요소를 파악하기 쉬움</li>
-          <li>동아리 채팅방 같은걸 따로 만들어 줄 순 있으나, 해당 채팅방만 이용하여 새로운 뉴비들의 관심이 식질 않게 많은 관심과 사랑 부탁드립니다.</li>
-        </ul>
-      </content:encoded>
-    </item>
+      <content:encoded>hello world</content:encoded></item>
     <!-- 각 기사 구분 줄
     ========================================================================================================================================================================================================== -->
 
@@ -162,9 +143,7 @@
             <li>판매자는 판매 금액의 10% 수수료가 발생합니다.</li>
           </ul>
         </div>
-        <img
-          src="https://cdn.discordapp.com/attachments/1238918461355196530/1238918461741334609/image.png?ex=6641b0fb&amp;is=66405f7b&amp;hm=f18e6c0da9cc6ef5392ac1bbc779357e0f18c27d5877e6d283f2ba8ead4fce10&amp;"
-          alt="Discord Image" />
+        <img src="https://cdn.discordapp.com/attachments/1238918461355196530/1238918461741334609/image.png?ex=6641b0fb&amp;is=66405f7b&amp;hm=f18e6c0da9cc6ef5392ac1bbc779357e0f18c27d5877e6d283f2ba8ead4fce10&amp;" alt="Discord Image"/>
       </content:encoded>
       <slash:comments>0</slash:comments>
     </item>
@@ -196,9 +175,7 @@
           </ul>
 
 
-          <img
-            src="https://cdn.discordapp.com/attachments/1237974346123710526/1237974346610245632/image.png?ex=663f9334&amp;is=663e41b4&amp;hm=10b9a07bfbb76de24503a88ee7185c63d3724a7addddcfedb82fba157c41a9ac&amp;"
-            alt="Discord Image" />
+          <img src="https://cdn.discordapp.com/attachments/1237974346123710526/1237974346610245632/image.png?ex=663f9334&amp;is=663e41b4&amp;hm=10b9a07bfbb76de24503a88ee7185c63d3724a7addddcfedb82fba157c41a9ac&amp;" alt="Discord Image"/>
 
 
         </div>
