@@ -1,7 +1,6 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:slash="http://purl.org/rss/1.0/modules/slash/" version="2.0">
 
-  <!-- last-guid: 6  -->
-
+  <!-- last-guid: 7  -->
   <channel>
     <title>뉴스</title>
     <description>패치 노트</description>
@@ -19,6 +18,31 @@
       <pubDate>Sat, 18 May 2024 16:02:48 +0900</pubDate>
       <link>https://discord.com/channels/1217041766847348776/1241284844949078056</link>
       <guid isPermaLink="false">6</guid>
+
+<item>
+<title>마인스퀘어 2024.5.22. 패치노트</title>
+<pubDate>Wed, 22 May 2024 02:03:53 +0900</pubDate>
+<link>https://discord.com/channels/1217041766847348776/1242523273711849482</link>
+<guid isPermaLink="false">7</guid>
+<dc:creator>비유</dc:creator>
+<content:encoded><div class="patch-note">
+<h3>발렌다 지팡이인 생명의 가지의 스킬이 변경되었습니다.</h3>
+<ul>
+</ul>
+</div>
+<div class="patch-note">
+<h3>또한 스킬 대미지가 삭제되고 무기 대미지로 변경되었습니다.</h3>
+<ul>
+</ul>
+</div>
+<div class="patch-note">
+<h3>이미 구매하신 분은 운영진에게 문의하여 교환해주세요.</h3>
+<ul>
+</ul>
+</div></content:encoded>
+</item>
+<!-- 각 기사 구분 줄 ========================================================================================================================================================================================================== -->
+
       <dc:creator>크작가</dc:creator>
       <content:encoded>hello world</content:encoded></item>
     <!-- 각 기사 구분 줄
