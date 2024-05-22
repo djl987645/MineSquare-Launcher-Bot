@@ -194,98 +194,101 @@ async def on_thread_create(thread):
 
 @bot.event
 async def on_thread_update(before, after):
+    if '패치노트' in before.name and '패치노트' in after.name:
+        response = requests.get(url, headers=headers)
+        if response.status_code == 200:
+            content_encoded = response.json()["content"]
+            content = base64.b64decode(content_encoded).decode("utf-8")
+            with open("rss.rss", "w", encoding="utf-8") as file:
+                file.write(content)
+            print("File downloaded successfully.")
+        else:
+            print(
+                f"Failed to download file. Status code: {response.status_code}"
+            )
 
-    response = requests.get(url, headers=headers)
-    if response.status_code == 200:
-        content_encoded = response.json()["content"]
-        content = base64.b64decode(content_encoded).decode("utf-8")
-        with open("rss.rss", "w", encoding="utf-8") as file:
-            file.write(content)
-        print("File downloaded successfully.")
-    else:
-        print(f"Failed to download file. Status code: {response.status_code}")
+        if before.jump_url == after.jump_url:
 
-    if before.jump_url == after.jump_url:
+            first_message = await after.history(limit=1).flatten()
+            after_message = first_message[0].content
+            after_contents = format_content(after_message)
+            print(f"패치노트가 수정되었습니다")
+            print(f"Content: {after_message}")
 
-        first_message = await after.history(limit=1).flatten()
-        after_message = first_message[0].content
-        after_contents = format_content(after_message)
-        print(f"패치노트가 수정되었습니다")
-        print(f"Content: {after_message}")
+            # XML 데이터 읽기
+            tree = etree.parse("rss.rss")
+            root = tree.getroot()
 
-        # XML 데이터 읽기
-        tree = etree.parse("rss.rss")
-        root = tree.getroot()
+            # content:encoded 태그 찾기
+            content_encoded = root.find(
+                './/{http://purl.org/rss/1.0/modules/content/}encoded')
+            img = root.find('.//img')
 
-        # content:encoded 태그 찾기
-        content_encoded = root.find(
-            './/{http://purl.org/rss/1.0/modules/content/}encoded')
-        img = root.find('.//img')
+            # content:encoded 태그 삭제
+            if content_encoded is not None:
+                parent_node = content_encoded.getparent()
+                parent_node.remove(content_encoded)
 
-        # content:encoded 태그 삭제
-        if content_encoded is not None:
-            parent_node = content_encoded.getparent()
-            parent_node.remove(content_encoded)
+                # 새로운 태그 추가
+                new_tag = etree.SubElement(
+                    parent_node,
+                    '{http://purl.org/rss/1.0/modules/content/}encoded')
 
-            # 새로운 태그 추가
-            new_tag = etree.SubElement(
-                parent_node,
-                '{http://purl.org/rss/1.0/modules/content/}encoded')
+                # 예시: after_contents에 있는 <와 > 문자를 lt, gt로 변환
+                after_contents_with_lt_gt = re.sub(
+                    r'(<|>)', lambda m: '&' + {
+                        '<': 'lt;',
+                        '>': 'gt;'
+                    }.get(m.group(), m.group()), after_contents)
 
-            # 예시: after_contents에 있는 <와 > 문자를 lt, gt로 변환
-            after_contents_with_lt_gt = re.sub(
-                r'(<|>)', lambda m: '&' + {
-                    '<': 'lt;',
-                    '>': 'gt;'
-                }.get(m.group(), m.group()), after_contents)
+                # lt, gt를 <, >로 변환
+                after_contents_with_correct_tags = convert_html_entities_to_symbols(
+                    after_contents_with_lt_gt)
 
-            # lt, gt를 <, >로 변환
-            after_contents_with_correct_tags = convert_html_entities_to_symbols(
-                after_contents_with_lt_gt)
+                # 이제 after_contents_with_correct_tags를 new_tag.text에 할당할 수 있습니다.
+                new_tag.text = f"{after_contents_with_correct_tags}"
 
-            # 이제 after_contents_with_correct_tags를 new_tag.text에 할당할 수 있습니다.
-            new_tag.text = f"{after_contents_with_correct_tags}"
+                # img 태그가 존재하는 경우만 처리
+                if img is not None and img.getparent() == parent_node:
+                    img_tag_string = etree.tostring(img).decode('utf-8')
+                    parent_node.remove(img)
+                    parent_node.append(etree.fromstring(img_tag_string))
 
-            # img 태그가 존재하는 경우만 처리
-            if img is not None and img.getparent() == parent_node:
-                img_tag_string = etree.tostring(img).decode('utf-8')
-                parent_node.remove(img)
-                parent_node.append(etree.fromstring(img_tag_string))
+            # 수정된 XML 저장
+            tree.write("rss.rss", pretty_print=False, encoding='utf-8')
 
-        # 수정된 XML 저장
-        tree.write("rss.rss", pretty_print=False, encoding='utf-8')
+        else:
+            print("xml edit failed")
 
-    else:
-        print("xml edit failed")
-
-    with open("rss.rss", "r", encoding="utf-8") as file:
-        content = file.read()
-    content_encoded = base64.b64encode(content.encode()).decode()
-    response = requests.get(url, headers=headers)
-    if response.status_code == 200:
-        data = response.json()
-        sha = data["sha"]
-        print(f"SHA: {sha}")
-    else:
-        print("파일 정보를 가져오는 데 실패했습니다.")
-    data = {
-        "owner": "djl987645",
-        "repo": "MineSquare-Launcher-Bot",
-        "message": "Upload rss.rss file",
-        "path": "rss.rss",
-        "content": content_encoded,
-        "committer": {
-            "name": "djl987645",
-            "email": "djl987645@gmail.com"
-        },
-        "branch": "main",
-        "sha": sha,
-    }
-    response = requests.put(url, headers=headers, json=data)
-    if response.status_code == 200:
-        print("File uploaded successfully.")
-    else:
-        print(f"Failed to upload file. Status code: {response.status_code}")
+        with open("rss.rss", "r", encoding="utf-8") as file:
+            content = file.read()
+        content_encoded = base64.b64encode(content.encode()).decode()
+        response = requests.get(url, headers=headers)
+        if response.status_code == 200:
+            data = response.json()
+            sha = data["sha"]
+            print(f"SHA: {sha}")
+        else:
+            print("파일 정보를 가져오는 데 실패했습니다.")
+        data = {
+            "owner": "djl987645",
+            "repo": "MineSquare-Launcher-Bot",
+            "message": "Upload rss.rss file",
+            "path": "rss.rss",
+            "content": content_encoded,
+            "committer": {
+                "name": "djl987645",
+                "email": "djl987645@gmail.com"
+            },
+            "branch": "main",
+            "sha": sha,
+        }
+        response = requests.put(url, headers=headers, json=data)
+        if response.status_code == 200:
+            print("File uploaded successfully.")
+        else:
+            print(
+                f"Failed to upload file. Status code: {response.status_code}")
 
 
 # 봇을 실행합니다.
