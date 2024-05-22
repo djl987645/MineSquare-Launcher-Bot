@@ -1,4 +1,6 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:slash="http://purl.org/rss/1.0/modules/slash/" version="2.0">
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:slash="http://purl.org/rss/1.0/modules/slash/" version="2.0">
 
   <!-- last-guid: 6  -->
   <channel>
@@ -10,7 +12,8 @@
     <generator>MineSquare Server</generator>
     <link>
       https://discord.gg/e9DmduXy</link>
-    <atom:link rel="self" type="application/rss+xml" href="https://raw.githubusercontent.com/djl987645/MineSquareLauncher/master/rss.rss"/>
+    <atom:link rel="self" type="application/rss+xml"
+      href="https://raw.githubusercontent.com/djl987645/MineSquareLauncher/master/rss.rss" />
 
     <!-- 19번째 줄부터 작성하니 19번째 줄은 비워두기 -->
 
@@ -21,21 +24,19 @@
       <link>https://discord.com/channels/1217041766847348776/1242523273711849482</link>
       <guid isPermaLink="false">6</guid>
       <dc:creator>비유</dc:creator>
-      <content:encoded>&lt;div class="patch-note"&gt;
-&lt;h3&gt;silverhak&lt;/h3&gt;
-&lt;ul&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="patch-note"&gt;
-&lt;h3&gt;5강&lt;/h3&gt;
-&lt;ul&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="patch-note"&gt;
-&lt;h3&gt;강타4&lt;/h3&gt;
-&lt;ul&gt;
-&lt;/ul&gt;
-&lt;/div&gt;</content:encoded></item>
+      <content:encoded>
+        <div class="patch-note">
+          <h3>[무기]</h3>
+          <ul>
+            <li>발렌다 지팡이인 생명의 가지의 스킬이 변경되었습니다.</li>
+            <li>또한 스킬 대미지가 삭제되고 무기 대미지로 변경되었습니다.</li>
+            <li>이미 구매하신 분은 운영진에게 문의하여 교환해주세요.</li>
+          </ul>
+        </div>
+        <h3>문의하실 때 본인이 가지고 있는 무기의 강화 횟수와 인챈트를 말씀해주시면 빠른 처리가 가능합니다.</h3>
+
+      </content:encoded>
+    </item>
     <!-- 각 기사 구분 줄
     ========================================================================================================================================================================================================== -->
 
@@ -158,7 +159,9 @@
             <li>판매자는 판매 금액의 10% 수수료가 발생합니다.</li>
           </ul>
         </div>
-        <img src="https://cdn.discordapp.com/attachments/1238918461355196530/1238918461741334609/image.png?ex=6641b0fb&amp;is=66405f7b&amp;hm=f18e6c0da9cc6ef5392ac1bbc779357e0f18c27d5877e6d283f2ba8ead4fce10&amp;" alt="Discord Image"/>
+        <img
+          src="https://cdn.discordapp.com/attachments/1238918461355196530/1238918461741334609/image.png?ex=6641b0fb&amp;is=66405f7b&amp;hm=f18e6c0da9cc6ef5392ac1bbc779357e0f18c27d5877e6d283f2ba8ead4fce10&amp;"
+          alt="Discord Image" />
       </content:encoded>
       <slash:comments>0</slash:comments>
     </item>
@@ -190,7 +193,9 @@
           </ul>
 
 
-          <img src="https://cdn.discordapp.com/attachments/1237974346123710526/1237974346610245632/image.png?ex=663f9334&amp;is=663e41b4&amp;hm=10b9a07bfbb76de24503a88ee7185c63d3724a7addddcfedb82fba157c41a9ac&amp;" alt="Discord Image"/>
+          <img
+            src="https://cdn.discordapp.com/attachments/1237974346123710526/1237974346610245632/image.png?ex=663f9334&amp;is=663e41b4&amp;hm=10b9a07bfbb76de24503a88ee7185c63d3724a7addddcfedb82fba157c41a9ac&amp;"
+            alt="Discord Image" />
 
 
         </div>

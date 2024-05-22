@@ -49,6 +49,12 @@ def format_content(text):
     return formatted_text
 
 
+def convert_html_entities_to_symbols(html_string):
+    # &lt;를 <로, &gt;를 >로 변환
+    converted_string = html_string.replace("&lt;", "<").replace("&gt;", ">")
+    return converted_string
+
+
 # 봇 토큰을 읽어옵니다.
 TOKEN = open("token", "r").readline()
 
@@ -225,7 +231,20 @@ async def on_thread_update(before, after):
             new_tag = etree.SubElement(
                 parent_node,
                 '{http://purl.org/rss/1.0/modules/content/}encoded')
-            new_tag.text = f"{after_contents}"
+
+            # 예시: after_contents에 있는 <와 > 문자를 lt, gt로 변환
+            after_contents_with_lt_gt = re.sub(
+                r'(<|>)', lambda m: '&' + {
+                    '<': 'lt;',
+                    '>': 'gt;'
+                }.get(m.group(), m.group()), after_contents)
+
+            # lt, gt를 <, >로 변환
+            after_contents_with_correct_tags = convert_html_entities_to_symbols(
+                after_contents_with_lt_gt)
+
+            # 이제 after_contents_with_correct_tags를 new_tag.text에 할당할 수 있습니다.
+            new_tag.text = f"{after_contents_with_correct_tags}"
 
             # img 태그가 존재하는 경우만 처리
             if img is not None and img.getparent() == parent_node:
