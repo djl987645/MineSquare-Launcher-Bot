@@ -1,6 +1,4 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/"
-  xmlns:content="http://purl.org/rss/1.0/modules/content/"
-  xmlns:slash="http://purl.org/rss/1.0/modules/slash/" version="2.0">
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:slash="http://purl.org/rss/1.0/modules/slash/" version="2.0">
 
   <!-- last-guid: 6  -->
   <channel>
@@ -12,8 +10,7 @@
     <generator>MineSquare Server</generator>
     <link>
       https://discord.gg/e9DmduXy</link>
-    <atom:link rel="self" type="application/rss+xml"
-      href="https://raw.githubusercontent.com/djl987645/MineSquareLauncher/master/rss.rss" />
+    <atom:link rel="self" type="application/rss+xml" href="https://raw.githubusercontent.com/djl987645/MineSquareLauncher/master/rss.rss"/>
 
     <!-- 19번째 줄부터 작성하니 19번째 줄은 비워두기 -->
 
@@ -24,19 +21,50 @@
       <link>https://discord.com/channels/1217041766847348776/1242523273711849482</link>
       <guid isPermaLink="false">6</guid>
       <dc:creator>비유</dc:creator>
-      <content:encoded>
-        <div class="patch-note">
-          <h3>[무기]</h3>
-          <ul>
-            <li>발렌다 지팡이인 생명의 가지의 스킬이 변경되었습니다.</li>
-            <li>또한 스킬 대미지가 삭제되고 무기 대미지로 변경되었습니다.</li>
-            <li>이미 구매하신 분은 운영진에게 문의하여 교환해주세요.</li>
-          </ul>
-        </div>
-        <h3>문의하실 때 본인이 가지고 있는 무기의 강화 횟수와 인챈트를 말씀해주시면 빠른 처리가 가능합니다.</h3>
-
-      </content:encoded>
-    </item>
+      <content:encoded>&lt;div class="patch-note"&gt;
+&lt;h3&gt;@everyone &lt;/h3&gt;
+&lt;ul&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="patch-note"&gt;
+&lt;h3&gt;[1]&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;새로운 콘텐츠 낚시가 추가됩니다. 낚시는 낚싯대를 물에 던져 물고기를 낚은 후 주어진 시간 내에 좌클릭과 우클릭을 표시된대로 기입하여 할 수 있습니다.&lt;/li&gt;
+&lt;li&gt;물고기 종류는 금붕어, 툭눈금, 날치, 해마, 대구, 옐로우프린스시클리드, 나비고기, 남양쥐돔, 해파리, 연어, 복어, 문어, 가오리, 개복치, 큰양놀래기, 하늘비늘돔, 참치, 흰동가리로 총 18종입니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="patch-note"&gt;
+&lt;h3&gt;[2]&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;피타야의 명칭이 용과로 변경됩니다.&lt;/li&gt;
+&lt;li&gt;이제 포도, 홉, 고추, 용과를 제외한 밭에서 기를 수 있는 작물을 수확 시 최대 획득 가능한 씨앗이 2개에서 1개로 감소합니다.&lt;/li&gt;
+&lt;li&gt;이제 포도와 홉, 고추, 용과를 제외한 밭에서 기를 수 있는 작물을 수확 시 씨앗이 나올 확률이 100%에서 90%로 감소합니다.&lt;/li&gt;
+&lt;li&gt;토마토의 가격이 34원에서 25원으로 감소합니다.(금 별, 은 별도 감소합니다.)&lt;/li&gt;
+&lt;li&gt;거대한 토마토가 상점에 추가됩니다. 200원에 판매할 수 있습니다.&lt;/li&gt;
+&lt;li&gt;배추의 가격이 82원에서 61원으로 감소합니다.(금 별, 은 별도 감소합니다.)&lt;/li&gt;
+&lt;li&gt;가지, 용과의 가격이 24원에서 18원으로 감소합니다.(금 별, 은 별도 감소합니다.)&lt;/li&gt;
+&lt;li&gt;포도, 마늘의 가격이 22원에서 16원으로 감소합니다.(금 별, 은 별도 감소합니다.)&lt;/li&gt;
+&lt;li&gt;고추의 가격이 20원에서 15원으로 감소합니다.(금 별, 은 별도 감소합니다.)&lt;/li&gt;
+&lt;li&gt;양배추, 옥수수의 가격이 78원에서 58원으로 감소합니다.(금 별, 은 별도 감소합니다.)&lt;/li&gt;
+&lt;li&gt;파인애플의 가격이 82원에서 54원으로 감소합니다.(금 별, 은 별도 감소합니다.)&lt;/li&gt;
+&lt;li&gt;거대한 파인애플이 상점에 추가됩니다. 488원에 판매할 수 있습니다.&lt;/li&gt;
+&lt;li&gt;홉의 가격이 26원에서 19원으로 감소합니다.(금 별, 은 별도 감소합니다.)&lt;/li&gt;
+&lt;li&gt;밀의 가격이 90원에서 66원으로 감소합니다.&lt;/li&gt;
+&lt;li&gt;감자의 가격이 22원에서 16원으로 감소합니다.(독이 있는 감자도 감소합니다.)&lt;/li&gt;
+&lt;li&gt;당근의 가격이 23원에서 17원으로 감소합니다.&lt;/li&gt;
+&lt;li&gt;호박의 가격이 115원에서 90원으로 감소합니다.&lt;/li&gt;
+&lt;li&gt;수박 조각의 가격이 20원에서 17원으로 감소합니다.&lt;/li&gt;
+&lt;li&gt;사탕수수의 가격이 78원에서 59원으로 감소합니다.&lt;/li&gt;
+&lt;li&gt;비트의 가격이 11원에서 9원으로 감소합니다.&lt;/li&gt;
+&lt;li&gt;플라스틱 스프링클러의 가격이 15000원에서 20000원으로 증가합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="patch-note"&gt;
+&lt;h3&gt;[3]&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;다이아몬드 블록의 판매가가 14000원에서 10000원으로 감소합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;</content:encoded></item>
     <!-- 각 기사 구분 줄
     ========================================================================================================================================================================================================== -->
 
@@ -159,9 +187,7 @@
             <li>판매자는 판매 금액의 10% 수수료가 발생합니다.</li>
           </ul>
         </div>
-        <img
-          src="https://cdn.discordapp.com/attachments/1238918461355196530/1238918461741334609/image.png?ex=6641b0fb&amp;is=66405f7b&amp;hm=f18e6c0da9cc6ef5392ac1bbc779357e0f18c27d5877e6d283f2ba8ead4fce10&amp;"
-          alt="Discord Image" />
+        <img src="https://cdn.discordapp.com/attachments/1238918461355196530/1238918461741334609/image.png?ex=6641b0fb&amp;is=66405f7b&amp;hm=f18e6c0da9cc6ef5392ac1bbc779357e0f18c27d5877e6d283f2ba8ead4fce10&amp;" alt="Discord Image"/>
       </content:encoded>
       <slash:comments>0</slash:comments>
     </item>
@@ -193,9 +219,7 @@
           </ul>
 
 
-          <img
-            src="https://cdn.discordapp.com/attachments/1237974346123710526/1237974346610245632/image.png?ex=663f9334&amp;is=663e41b4&amp;hm=10b9a07bfbb76de24503a88ee7185c63d3724a7addddcfedb82fba157c41a9ac&amp;"
-            alt="Discord Image" />
+          <img src="https://cdn.discordapp.com/attachments/1237974346123710526/1237974346610245632/image.png?ex=663f9334&amp;is=663e41b4&amp;hm=10b9a07bfbb76de24503a88ee7185c63d3724a7addddcfedb82fba157c41a9ac&amp;" alt="Discord Image"/>
 
 
         </div>
