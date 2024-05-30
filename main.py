@@ -192,7 +192,7 @@ async def on_thread_create(thread):
                 )
 
 
-@bot.event
+""" @bot.event
 async def on_thread_update(before, after):
     if '패치노트' in before.name and '패치노트' in after.name:
         response = requests.get(url, headers=headers)
@@ -288,7 +288,7 @@ async def on_thread_update(before, after):
             print("File uploaded successfully.")
         else:
             print(
-                f"Failed to upload file. Status code: {response.status_code}")
+                f"Failed to upload file. Status code: {response.status_code}") """
 
 
 # 봇을 실행합니다.
