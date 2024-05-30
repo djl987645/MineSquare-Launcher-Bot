@@ -29,24 +29,9 @@
 &lt;div class="patch-note"&gt;
 &lt;h3&gt;[1]&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;물 뿌리개의 명칭이 물뿌리개로 변경됩니다.&lt;/li&gt;
-&lt;li&gt;이제 구리 물뿌리개를 제작하기 위해서는 7000원과 구리 블록 7개가 필요합니다.&lt;/li&gt;
-&lt;li&gt;플라스틱 스프링쿨러의 명칭이 기본 스프링클러로 변경됩니다.&lt;/li&gt;
-&lt;li&gt;이제 기본 스프링클러를 제작하기 위해서는 25000원과 철 블록 3개가 필요합니다.&lt;/li&gt;
-&lt;li&gt;세 번째로 땅 구매 비용이 100만원에서 200만원으로 증가합니다.&lt;/li&gt;
-&lt;li&gt;이제 허수아비를 제작하기 위해서는 5000원과 가죽 조끼가 필요합니다.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="patch-note"&gt;
-&lt;h3&gt;[2]&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;이제 도끼로 구리의 녹을 제거할 수 없습니다.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="patch-note"&gt;
-&lt;h3&gt;[3]&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;야생 월드에서 사탕수수가 심어지는 오류를 해결했습니다.&lt;/li&gt;
+&lt;li&gt;이제 침대를 설치하고 우클릭하면 그 위치가 자신의 집으로 지정됩니다.&lt;/li&gt;
+&lt;li&gt;이제 경기대학교에 있는 버스 정류장에서 버스 기사 npc를 클릭하면 자신의 집으로 이동됩니다. (시범으로 무료로 운영되며 추후 돈을 받습니다.)&lt;/li&gt;
+&lt;li&gt;서버에 처음 들어온 플레이어는 구운 돼지고기 15개가 지급됩니다.(이미 플레이 하던 유저는 받을 수 없습니다.)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;</content:encoded></item>
     <!-- 각 기사 구분 줄
