@@ -29,9 +29,24 @@
 &lt;div class="patch-note"&gt;
 &lt;h3&gt;[1]&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;이제 침대를 설치하고 우클릭하면 그 위치가 자신의 집으로 지정됩니다.&lt;/li&gt;
-&lt;li&gt;이제 경기대학교에 있는 버스 정류장에서 버스 기사 npc를 클릭하면 자신의 집으로 이동됩니다. (시범으로 무료로 운영되며 추후 돈을 받습니다.)&lt;/li&gt;
-&lt;li&gt;서버에 처음 들어온 플레이어는 구운 돼지고기 15개가 지급됩니다.(이미 플레이 하던 유저는 받을 수 없습니다.)&lt;/li&gt;
+&lt;li&gt;회색 자전거의 가격이 10000원에서 3000원으로 낮아집니다.&lt;/li&gt;
+&lt;li&gt;빨간색 자전거의 가격이 30000원에서 7500원으로 낮아집니다.&lt;/li&gt;
+&lt;li&gt;하늘색 자전거의 가격이 50000원에서 15000원으로 낮아집니다.&lt;/li&gt;
+&lt;li&gt;파란색 자전거의 가격이 100000원에서 30000원으로 낮아집니다.&lt;/li&gt;
+&lt;li&gt;빨간색 핫로드와 초록색 핫로드 판매가 시작되었습니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="patch-note"&gt;
+&lt;h3&gt;[2]&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;땅 판매가 삭제됩니다.&lt;/li&gt;
+&lt;li&gt;이제 땅 기본 설정에 입장 제한이 허용으로 변경됩니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="patch-note"&gt;
+&lt;h3&gt;[3]&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;잡화상점에서 쿠키를 10원에 판매합니다.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;</content:encoded></item>
     <!-- 각 기사 구분 줄
