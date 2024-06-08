@@ -2,7 +2,7 @@
   xmlns:content="http://purl.org/rss/1.0/modules/content/"
   xmlns:slash="http://purl.org/rss/1.0/modules/slash/" version="2.0">
 
-  <!-- last-guid: 7  -->
+  <!-- last-guid: 8  -->
   <channel>
     <title>뉴스</title>
     <description>패치 노트</description>
@@ -16,6 +16,50 @@
       href="https://raw.githubusercontent.com/djl987645/MineSquare-Launcher-Bot/main/rss.rss" />
 
     <!-- 19번째 줄부터 작성하니 19번째 줄은 비워두기 -->
+
+
+    <item>
+      <title>마인스퀘어 2024.6.8. 패치노트</title>
+      <pubDate>Sat, 08 Jun 2024 20:02:00 +0900</pubDate>
+      <link>https://discord.com/channels/1217041766847348776/1248955354268827683</link>
+      <guid isPermaLink="false">8</guid>
+      <dc:creator>쿠동</dc:creator>
+      <content:encoded>
+        <div class="patch-note">
+          <h3>[시스템]</h3>
+          <ul>
+            <li>의자에 앉을 수 있는 시간이 변경되었습니다. (15초에서 1분으로)</li>
+          </ul>
+        </div>
+        <div class="patch-note">
+          <h3>[탈것]</h3>
+
+        </div>
+
+        <div class="patch-note">
+          <h3>[탈것]</h3>
+          <ul>
+            <li>고무보트가 추가되었습니다. <ul>
+                <li>최고 스피드: 60.0km/h - 부스트적용시(80.0km/h)</li>
+                <li>가격: 30만원</li>
+              </ul>
+            </li>
+            <li>모터보트가 추가되었습니다. <ul>
+                <li>최고 스피드: 100.0km/h - 부스트적용시(150.0km/h)</li>
+                <li>가격: 100만원</li>
+              </ul>
+            </li>
+            <li>레저보트가 추가되었습니다. <ul>
+                <li>최고 스피드: 100.0km/h - 부스트적용시(200.0km/h)</li>
+                <li>가격: 300만원</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </content:encoded>
+    </item>
+    <!-- 각 기사 구분 줄
+    ========================================================================================================================================================================================================== -->
 
 
     <item>

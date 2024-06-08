@@ -106,6 +106,9 @@ async def on_thread_create(thread):
         if first_message:
             thread_title = thread.name
             creation_date = thread.created_at
+            korea_tz = pytz.timezone('Asia/Seoul')
+            creation_date_korea = creation_date.astimezone(korea_tz)
+
             thread_link = thread.jump_url
             author_name = first_message[0].author.display_name
             if author_name == "minho4979":
@@ -144,8 +147,6 @@ async def on_thread_create(thread):
             if creation_date.tzinfo is None or creation_date.tzinfo.utcoffset(
                     creation_date) is not None:
                 creation_date = creation_date.replace(tzinfo=pytz.UTC)
-            korea_tz = pytz.timezone('Asia/Seoul')
-            creation_date_korea = creation_date.astimezone(korea_tz)
             new_item += f"<pubDate>{creation_date_korea.strftime('%a, %d %b %Y %H:%M:%S %z')}</pubDate>\n"
             new_item += f"<link>{thread_link}</link>\n"
             new_item += f'<guid isPermaLink="false">{guid}</guid>\n'
