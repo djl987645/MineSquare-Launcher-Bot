@@ -2,8 +2,7 @@
   xmlns:content="http://purl.org/rss/1.0/modules/content/"
   xmlns:slash="http://purl.org/rss/1.0/modules/slash/" version="2.0">
 
-  <!-- last-guid: 8  -->
-  <channel>
+  <!-- last-guid: 9  -->  <channel>
     <title>뉴스</title>
     <description>패치 노트</description>
     <pubDate>Sun, 12 May 2024 03:19:00 +0900</pubDate>
@@ -19,6 +18,31 @@
 
 
     <item>
+
+<item>
+<title>마인스퀘어 2024.6.18. 패치노트</title>
+<pubDate>Tue, 18 Jun 2024 03:09:38 +0900</pubDate>
+<link>https://discord.com/channels/1217041766847348776/1252324294449561610</link>
+<guid isPermaLink="false">9</guid>
+<dc:creator>크작가</dc:creator>
+<content:encoded><div class="patch-note">
+<h3>서버 내에서 음란물 창작 금지 규칙이 추가 되었습니다.</h3>
+<ul>
+</ul>
+</div>
+<div class="patch-note">
+<h3>적발시 경고 5점</h3>
+<ul>
+</ul>
+</div>
+<div class="patch-note">
+<h3>@everyone</h3>
+<ul>
+</ul>
+</div></content:encoded>
+</item>
+<!-- 각 기사 구분 줄 ========================================================================================================================================================================================================== -->
+
       <title>마인스퀘어 2024.6.8. 패치노트</title>
       <pubDate>Sat, 08 Jun 2024 20:02:00 +0900</pubDate>
       <link>https://discord.com/channels/1217041766847348776/1248955354268827683</link>
